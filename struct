@@ -82,6 +82,11 @@ RUN  pip install jupyterlab_sql==0.2.1  && \
      jupyter serverextension enable jupyterlab_sql --py --sys-prefix  && \
      jupyter lab build
 
+#JupyterLab LaTeX
+RUN  pip install jupyterlab_latex  && \
+         jupyter serverextension enable --sys-prefix jupyterlab_latex
+         jupyter labextension install @jupyterlab/latex
+
 EXPOSE 8888
 ENTRYPOINT ["tini", "-g", "--"]
 CMD jupyter-lab  --port=8888

@@ -40,7 +40,7 @@ RUN pip install -e .
 RUN jupyter-kernelspec install --user cling-cpp11
 
 
-RUN  pip install ansible-kernel  jupyterlab  jupyterlab_sql==0.2.1   && \
+RUN  pip install ansible-kernel  jupyterlab  jupyterlab_sql==0.2.1  jupyterlab_latex  && \
      python -m ansible_kernel.install
 
 RUN git clone https://github.com/fiber-space/jupyter-kernel-jsr223.git  && \
@@ -54,6 +54,9 @@ WORKDIR $HOME/$NB_UID
 
 RUN  jupyter serverextension enable jupyterlab_sql --py --sys-prefix  && \
      jupyter lab build
+
+RUN  jupyter serverextension enable --sys-prefix jupyterlab_latex   && \
+         jupyter labextension install @jupyterlab/latex
 
 EXPOSE 8888
 ENTRYPOINT ["tini", "-g", "--"]
