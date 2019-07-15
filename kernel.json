@@ -1,0 +1,10 @@
+{
+ "argv": ["java",
+          "-classpath",
+              "/usr/share/java/jython.jar:/home/jovyan/jupyter-kernel-jsr223/target/jupyter-kernel-jsr223.jar",
+          "org.jupyterkernel.kernel.Session",
+              "-k", "python",
+              "-f", "{connection_file}"],
+ "display_name": "Jython 2.7",
+ "language": "python"
+}
