@@ -6,7 +6,7 @@ all-in-one,lazy but heavy
 run:
 
 ```
-docker run -itd --name jupyter -p 8888:8888  comm/jupyterhub
+docker run -itd --name jupyter -p 8888:8888  comm/jupyter
 ```
 
 token:
